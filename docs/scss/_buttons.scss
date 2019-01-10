@@ -1,0 +1,138 @@
+.button-start__container {
+    width: 80%;
+
+    .button-start {
+        width: 100%;
+        background-color: $red;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        border-radius: 10px;
+        border-width: 4px;
+        border-color: $red;
+
+        &:hover {
+            color: $red;
+            background-color: white;
+        }
+
+        &:active {
+            color: $red;
+            background-color: white;
+        }
+    }
+}
+
+.button-info {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    border-color: $lightgrey;
+    z-index: 2;
+}
+
+#nextstep,
+.button-undo,
+.button-clear,
+.button-backToStart {
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background-color: $blue;
+    width: 100%;
+
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    font-family: inherit;
+    padding: .85em 1em;
+    font-size: .9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+
+    border-radius: 10px;
+    //border-width: 2px;
+    //border-color: $blue;
+
+
+    &:active {
+        color: white;
+        background-color: $grey;
+    }
+
+    @media screen and (min-width: 1200px) {
+        &:hover {
+            color: white;
+            background-color: $darkgrey;
+        }
+
+        &:active {
+            color: white;
+            background-color: $grey;
+        }
+    }
+}
+
+
+#skip,
+.button-skip,
+.button-next {
+    font-weight: bold;
+    color: white;
+    background-color: $red;
+
+    width: 100%;
+    border-radius: 10px;
+    //order-width: 2px;
+    // border-color: $red;
+
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    font-family: inherit;
+    padding: .85em 1em;
+    font-size: .9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+
+    &:active {
+        color: white;
+        background-color: $grey;
+    }
+
+    @media screen and (min-width: 1200px) {
+        &:hover {
+            color: white;
+            background-color: $darkgrey;
+        }
+
+        &:active {
+            color: white;
+            background-color: $grey;
+        }
+    }
+
+}
+
+a.button {
+    text-decoration: none;
+}
+
+.button-en,
+.button-de {
+    position: sticky;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-color: #a6a6a6;
+    z-index: 2;
+
+}

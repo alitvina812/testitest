@@ -1,0 +1,17 @@
+.logo--start {
+    img {
+        opacity: 0;
+    }
+
+    background-image: url(../assets/logo_big_color.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    // margin-bottom: 10%;
+    // margin-top: 10%;
+
+    @media screen and (min-width: 720px) {
+        margin: 2rem;
+    }
+}

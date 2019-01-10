@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>skribbl.AI</title>
+
+    <!-- start favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- end favicon  -->
+
+    <!-- prevent landscape -->
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
+    <link rel="stylesheet" href="css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- STARTSCREEN -->
+    <template id="start-template">
+        <section id="start" class="section screen__start">
+
+            <!-- start Language button -->
+            <button type="button" class="button hollow secondary button-en">EN</button>
+            <button type="button" class="button hollow secondary button-de">DE</button>
+            <!-- end Language button -->
+            <!-- start Infobutton -->
+            <button type="button" class="button hollow secondary button-info">i</button>
+            <!-- end Infobutton -->
+            <div class="content__container-flex">
+                <!-- start Logo -->
+                <div class="logo--start big">
+                    <!-- <img src="assets/logo_big_color.png" alt="logo"> -->
+                </div>
+                <!-- end Logo -->
+                <!-- start Startbutton -->
+                <div class="button-start__container  margin-auto">
+                    <button class="button button-start start-game js-clear-screen">PLAY</button>
+                </div>
+                <!-- end Startbutton -->
+            </div>
+            <!-- start Infotext-->
+            <div class="info__container">
+                <div class="info">
+                    <h2>INFO</h2>
+                    <p>Schlage die Zeit indem du das angezeigte Wort für den Computer so deutlich wie möglich
+                        zeichnest.
+                        <br>
+                        Beobachte wie Strich für Strich der Computer andere Formen und Wörter erkennt und dein
+                        Gewinnwort somit Stufe für Stufe auf dem Gewinnertreppchen nach oben klettert.</p>
+                </div>
+            </div>
+            <!-- end Infotext-->
+        </section>
+    </template>
+
+    <!-- GAMESCREEN -->
+    <template id="game-template">
+        <section id="game" class="section screen__game">
+            <div class="">
+                <!-- start Tutorial -->
+                <div id="overlay" class=" grid-container">
+                    <div id="overlay-text"></div>
+                    <div id="overlay-number"></div>
+                    <div class="grid-x" id=tutorial-buttons>
+                        <div class="cell small-5 margin-auto text-align-center">
+                            <button class="button tutorial-buttons" id="nextstep">NEXT STEP</button>
+                        </div>
+                        <div class="cell small-4 margin-auto text-align-center">
+                            <button class="button tutorial-buttons" id="skip">SKIP</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- end Tutorial -->
+                <!-- start Timer -->
+                <div class="cell small-12 timer__container">
+                    <div id="timer">
+                        <span id="timerNumber"></span>
+                    </div>
+                </div>
+                <!-- end Timer -->
+                <!-- start Balkenanzeigen -->
+                <div class="content__container-flex change-orientation">
+                    <div class="bars__container" id="bars__area">
+                        <div class="bar__empty" id="sym1">
+                            <div id="prob1" class="bar__full"></div>
+                        </div>
+                        <div class="bar__empty" id="sym2">
+                            <div id="prob2" class="bar__full"></div>
+                        </div>
+                        <div class="bar__empty" id="sym3">
+                            <div id="prob3" class="bar__full"></div>
+                        </div>
+                        <div class="bar__empty" id="sym4">
+                            <div id="prob4" class="bar__full"></div>
+                        </div>
+                        <div class="bar__empty" id="sym5">
+                            <div id="prob5" class="bar__full"></div>
+                        </div>
+                    </div>
+                    <!-- end Balkenanzeigen -->
+
+                    <!-- start Canvas -->
+                    <div class="canvas__container big">
+                        <canvas id="canvas" class="canvas" width="290px" height="300px"></canvas>
+                    </div>
+                    <!-- end Canvas -->
+
+                    <!-- start Buttons -->
+                    <div class="button__container grid-containder">
+                        <div class="grid-x">
+                            <div class="cell small-4 text-align-right">
+                                <button id="clear" class="button-clear">CLEAR</button>
+                            </div>
+                            <div class="cell small-4 margin-left-auto text-align-right">
+                                <button id="undo" class="button-undo">UNDO</button>
+                            </div>
+                            <div class="cell small-3 margin-left-auto text-align-right">
+                                <button id="skip__tool" class="button-skip">SKIP</button>
+                            </div>
+                        </div>
+                        <!-- end Buttons -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+
+    <!-- ENDSCREEN -->
+    <template id="end-template">
+        <section id="end" class="section screen__end">
+            <div class="content__container-flex">
+                <!-- start Text -->
+                <div id="result" class="text-align-center big">
+                    <h1>TIME'S UP!</h1>
+                    <p>Oh no, I couldn't guess it!</p>
+                    <p>I was ...% sure and it wasn't in first place.</p>
+                    <p>Next word, please!</p>
+                </div>
+                <!-- end Text -->
+                <!-- start Buttons-->
+                <div class="grid-x">
+                    <div class="cell small-5 button-start__container margin-auto">
+                        <button id="backToStart" class="js-clear-screen button-backToStart">MENU</button>
+                    </div>
+                    <div class="cell small-5 button-start__container margin-auto">
+                        <button id="res-button" class="js-clear-screen button-next start-game">NEXT</button>
+                    </div>
+                </div>
+                <!-- end Buttons-->
+            </div>
+        </section>
+    </template>
+
+    <script src="js/model.js"></script>
+    <script src="js/view-controller.js"></script>
+    <script src="js/end-screen-controller.js"></script>
+    <script src="js/game-screen-controller.js"></script>
+    <script src="js/tutorial.js"></script>
+    <script src="js/app-controller.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/game-round.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/fabric.js"></script>
+    <script src="js/vendor/tensorflow.js"></script>
+
+
+    <script src="js/canvas.js"></script>
+    <script src="js/start-screen-controller.js"></script>
+
+
+
+</head>
+
+<body>
+    <main>
+
+    </main>
+    <!-- <script src="js/index.js"></script> -->
+</body>
+
+</html>
