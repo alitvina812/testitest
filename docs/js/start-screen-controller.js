@@ -58,6 +58,8 @@ class StartScreenController extends ViewController {
             console.log('startScreenController');
             this.appController.gameScreenController.display();
         });
+
+        window.addEventListener("resize", that.setContentHeight());
     }
 }
 
