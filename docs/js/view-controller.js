@@ -26,3 +26,8 @@ class ViewController {
 //         clearScreen.addEventListener("click", clearScreen);
 //     }
 // });
+
+window/addEventListener("resize",  () => {
+    let devInfo = document.getElementById("dev-info");
+    devInfo.innerHTML = "window.innerHeight = " + window.innerHeight;
+})
