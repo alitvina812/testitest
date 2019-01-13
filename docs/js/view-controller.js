@@ -27,7 +27,7 @@ class ViewController {
 //     }
 // });
 
-window/addEventListener("resize",  () => {
+window.addEventListener("resize",  () => {
     let devInfo = document.getElementById("dev-info");
     devInfo.innerHTML = "window.innerHeight = " + window.innerHeight;
 })
