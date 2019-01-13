@@ -3,6 +3,10 @@ class ViewController {
     constructor() {
         this.appController = SingletonAppController.getInstance();
         this.elements = {};
+
+        window.addEventListener("resize", () => {
+            this.setContentHeight();
+        })
     }
 
     clearScreen() {
@@ -13,8 +17,8 @@ class ViewController {
     }
 
     setContentHeight() {
-        // let vh = window.innerHeight * 0.01;
-        // document.documentElement.style.setProperty('--vh', `${vh}px`);
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 }
 
