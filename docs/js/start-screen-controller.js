@@ -7,7 +7,7 @@ class StartScreenController extends ViewController {
     }
 
     display() {
-        this.setContentHeight();
+        // this.setContentHeight();
         this.elements.mainEl = document.querySelector("main");
         this.elements.mainEl.appendChild(document.getElementById("start-template").content.cloneNode(true).firstElementChild);
     }
