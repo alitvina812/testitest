@@ -3,10 +3,6 @@ class ViewController {
     constructor() {
         this.appController = SingletonAppController.getInstance();
         this.elements = {};
-
-        window.addEventListener("resize", () => {
-            this.setContentHeight();
-        })
     }
 
     clearScreen() {
@@ -14,11 +10,6 @@ class ViewController {
         while (mainElement.lastChild) {
             mainElement.removeChild(mainElement.lastChild);
         }
-    }
-
-    setContentHeight() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 }
 
@@ -30,8 +21,3 @@ class ViewController {
 //         clearScreen.addEventListener("click", clearScreen);
 //     }
 // });
-
-window.addEventListener("resize",  () => {
-    let devInfo = document.getElementById("dev-info");
-    devInfo.innerHTML = "window.innerHeight = " + window.innerHeight;
-})

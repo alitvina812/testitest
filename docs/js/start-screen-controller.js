@@ -7,7 +7,7 @@ class StartScreenController extends ViewController {
     }
 
     display() {
-        // this.setContentHeight();
+        this.clearScreen();
         this.elements.mainEl = document.querySelector("main");
         this.elements.mainEl.appendChild(document.getElementById("start-template").content.cloneNode(true).firstElementChild);
     }
@@ -58,8 +58,6 @@ class StartScreenController extends ViewController {
             console.log('startScreenController');
             this.appController.gameScreenController.display();
         });
-
-        window.addEventListener("resize", that.setContentHeight());
     }
 }
 
